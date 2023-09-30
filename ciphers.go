@@ -6,6 +6,7 @@ import (
 	"github.com/WebPTP/ciphers/hasher"
 	"github.com/WebPTP/ciphers/keypair"
 	"github.com/WebPTP/ciphers/signer"
+	"github.com/mr-tron/base58"
 	"github.com/tjfoc/gmsm/sm2"
 )
 
@@ -33,7 +34,8 @@ func InitCipher() {
 	Enciphers = make(map[string]encipher.IEncipher)
 
 	addEncoder(encoder.NewEncoder_hex())
-	addEncoder(encoder.NewEncoder_base58())
+	addEncoder(encoder.NewEncoder_base58(true, "BTC", base58.BTCAlphabet))
+	addEncoder(encoder.NewEncoder_base58(false, "Flickr", base58.FlickrAlphabet))
 	addEncoder(encoder.NewEncoder_base64())
 
 	addHasher(hasher.NewHasher_md5())
