@@ -6,7 +6,7 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/WebPTP/ciphers.go/keypair"
+	"github.com/WebPTP/ciphers/keypair"
 )
 
 const RSA_bits_1024 = 1024

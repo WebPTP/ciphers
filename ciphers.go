@@ -1,11 +1,11 @@
-package ciphersgo
+package ciphers
 
 import (
-	"github.com/WebPTP/ciphers.go/encipher"
-	"github.com/WebPTP/ciphers.go/encoder"
-	"github.com/WebPTP/ciphers.go/hasher"
-	"github.com/WebPTP/ciphers.go/keypair"
-	"github.com/WebPTP/ciphers.go/signer"
+	"github.com/WebPTP/ciphers/encipher"
+	"github.com/WebPTP/ciphers/encoder"
+	"github.com/WebPTP/ciphers/hasher"
+	"github.com/WebPTP/ciphers/keypair"
+	"github.com/WebPTP/ciphers/signer"
 	"github.com/tjfoc/gmsm/sm2"
 )
 

@@ -5,7 +5,7 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/WebPTP/ciphers.go/keypair"
+	"github.com/WebPTP/ciphers/keypair"
 	"github.com/tjfoc/gmsm/sm2"
 )
 

@@ -4,7 +4,7 @@ import (
 	"crypto/ecdsa"
 	"crypto/rand"
 
-	"github.com/WebPTP/ciphers.go/keypair"
+	"github.com/WebPTP/ciphers/keypair"
 )
 
 type Signer_ECDSA_der struct {

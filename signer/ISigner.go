@@ -1,6 +1,6 @@
 package signer
 
-import "github.com/WebPTP/ciphers.go/keypair"
+import "github.com/WebPTP/ciphers/keypair"
 
 type ISigner interface {
 	/* 签名器的名称 */

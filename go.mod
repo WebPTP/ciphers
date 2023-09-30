@@ -1,4 +1,4 @@
-module github.com/WebPTP/ciphers.go
+module github.com/WebPTP/ciphers
 
 go 1.21.1
 

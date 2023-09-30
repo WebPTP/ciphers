@@ -1,6 +1,6 @@
 package encipher
 
-import "github.com/WebPTP/ciphers.go/keypair"
+import "github.com/WebPTP/ciphers/keypair"
 
 /* 加密算法 */
 type IEncipher interface {
