@@ -1,4 +1,4 @@
-package encoder
+package encoders
 
 /* 二进制数据的编码方式 */
 type IEncoder interface {

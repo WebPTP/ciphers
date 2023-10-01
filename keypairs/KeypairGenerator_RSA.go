@@ -1,4 +1,4 @@
-package keypair
+package keypairs
 
 import (
 	"crypto/rand"
@@ -38,7 +38,7 @@ func (k KeypairGenerator_RSA) GenerateKeyPair() (*IKeypair, error) {
 	}
 	return &IKeypair{
 		PrivateKey: privateKey,
-		PublicKey:  privateKey.PublicKey,
+		PublicKey:  &privateKey.PublicKey,
 	}, nil
 }
 

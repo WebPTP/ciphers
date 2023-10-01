@@ -1,4 +1,4 @@
-package hasher
+package hashers
 
 import "crypto/md5"
 
@@ -7,6 +7,7 @@ func NewHasher_md5() *Hasher_md5 {
 }
 
 type Hasher_md5 struct {
+	IHasher
 }
 
 func (*Hasher_md5) GetNames() []string {

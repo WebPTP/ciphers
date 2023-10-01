@@ -1,4 +1,4 @@
-package keypair
+package keypairs
 
 /* 秘钥对生成器 */
 type IKeypairGenerator interface {

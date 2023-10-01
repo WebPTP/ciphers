@@ -1,4 +1,4 @@
-package keypair
+package keypairs
 
 /* 秘钥 */
 type Key any

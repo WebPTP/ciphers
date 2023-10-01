@@ -1,11 +1,11 @@
-package encipher
+package enciphers
 
 import (
 	"crypto/rand"
 	"errors"
 	"strconv"
 
-	"github.com/WebPTP/ciphers/keypair"
+	"github.com/WebPTP/ciphers/keypairs"
 	"github.com/tjfoc/gmsm/sm2"
 )
 
@@ -38,14 +38,14 @@ func (e Encipher_SM2) GetNames() []string {
 	// privKey, _ := sm2.GenerateKey(rand.Reader)
 }
 
-func (e Encipher_SM2) Encrypt(key keypair.Key, plaintext []byte) ([]byte, error) {
+func (e Encipher_SM2) Encrypt(key keypairs.Key, plaintext []byte) ([]byte, error) {
 	if key, ok := key.(*sm2.PublicKey); ok {
 		return sm2.Encrypt(key, plaintext, rand.Reader, e.mode)
 	}
 	return nil, errors.New("not an *sm2.PublicKey")
 }
 
-func (e Encipher_SM2) Decrypt(key keypair.Key, ciphertext []byte) ([]byte, error) {
+func (e Encipher_SM2) Decrypt(key keypairs.Key, ciphertext []byte) ([]byte, error) {
 	if key, ok := key.(*sm2.PrivateKey); ok {
 		return sm2.Decrypt(key, ciphertext, e.mode)
 	}

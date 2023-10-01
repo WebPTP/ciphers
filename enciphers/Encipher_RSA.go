@@ -1,4 +1,4 @@
-package encipher
+package enciphers
 
 import (
 	"crypto/rand"
@@ -6,7 +6,7 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/WebPTP/ciphers/keypair"
+	"github.com/WebPTP/ciphers/keypairs"
 )
 
 const RSA_bits_1024 = 1024
@@ -32,19 +32,19 @@ func (e Encipher_RSA) GetNames() []string {
 	}
 }
 
-func (e Encipher_RSA) Encrypt(key keypair.Key, plaintext []byte) ([]byte, error) {
+func (e Encipher_RSA) Encrypt(key keypairs.Key, plaintext []byte) ([]byte, error) {
 	if publicKey, ok := key.(*rsa.PublicKey); ok {
-		if publicKey.Size() != e.bits {
-			return nil, errors.New("public key size mismatch")
+		if publicKey.N.BitLen() != e.bits {
+			return nil, errors.New("public key size mismatch: publicKey[" + strconv.Itoa(publicKey.N.BitLen()) + "] e.bits[" + strconv.Itoa(e.bits) + "]")
 		}
 		return rsa.EncryptPKCS1v15(rand.Reader, publicKey, plaintext)
 	}
 	return nil, errors.New("not an *rsa.PublicKey")
 }
 
-func (e Encipher_RSA) Decrypt(key keypair.Key, ciphertext []byte) ([]byte, error) {
+func (e Encipher_RSA) Decrypt(key keypairs.Key, ciphertext []byte) ([]byte, error) {
 	if privateKey, ok := key.(*rsa.PrivateKey); ok {
-		if privateKey.Size() != e.bits {
+		if privateKey.N.BitLen() != e.bits {
 			return nil, errors.New("private key size mismatch")
 		}
 		return rsa.DecryptPKCS1v15(rand.Reader, privateKey, ciphertext)

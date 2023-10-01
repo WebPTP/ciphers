@@ -1,10 +1,10 @@
-package signer
+package signers
 
 import (
 	"crypto/ecdsa"
 	"crypto/rand"
 
-	"github.com/WebPTP/ciphers/keypair"
+	"github.com/WebPTP/ciphers/keypairs"
 )
 
 type Signer_ECDSA_der struct {
@@ -29,10 +29,10 @@ func (s Signer_ECDSA_der) GetNames() []string {
 	}
 }
 
-func (s Signer_ECDSA_der) Sign(privateKey keypair.PrivateKey, hash []byte) ([]byte, error) {
+func (s Signer_ECDSA_der) Sign(privateKey keypairs.PrivateKey, hash []byte) ([]byte, error) {
 	return ecdsa.SignASN1(rand.Reader, privateKey.(*ecdsa.PrivateKey), hash)
 }
 
-func (s Signer_ECDSA_der) Verify(publicKey keypair.PublicKey, hash []byte, signature []byte) (bool, error) {
+func (s Signer_ECDSA_der) Verify(publicKey keypairs.PublicKey, hash []byte, signature []byte) (bool, error) {
 	return ecdsa.VerifyASN1(publicKey.(*ecdsa.PublicKey), hash, signature), nil
 }

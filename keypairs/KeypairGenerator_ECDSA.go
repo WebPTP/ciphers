@@ -1,4 +1,4 @@
-package keypair
+package keypairs
 
 import (
 	"crypto/ecdsa"
@@ -38,7 +38,7 @@ func (KeypairGenerator_ECDSA) GenerateKeyPair() (*IKeypair, error) {
 	}
 	publicKey := privateKey.PublicKey
 	return &IKeypair{
-		PublicKey:  publicKey,
+		PublicKey:  &publicKey,
 		PrivateKey: privateKey,
 	}, nil
 }

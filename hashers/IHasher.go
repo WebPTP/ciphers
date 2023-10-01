@@ -1,4 +1,4 @@
-package hasher
+package hashers
 
 type IHasher interface {
 	/* 算法名称 */
