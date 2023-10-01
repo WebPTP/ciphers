@@ -1,4 +1,4 @@
-package main
+package ciphers
 
 import (
 	"github.com/WebPTP/ciphers/enciphers"
