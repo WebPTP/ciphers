@@ -14,7 +14,6 @@ const RSA_bits_3072 = 3072
 const RSA_bits_4096 = 4096
 
 type KeypairGenerator_RSA struct {
-	IKeypairGenerator
 	bits int
 }
 

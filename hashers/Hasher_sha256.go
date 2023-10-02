@@ -7,7 +7,6 @@ func NewHasher_sha256() *Hasher_sha256 {
 }
 
 type Hasher_sha256 struct {
-	IHasher
 }
 
 func (*Hasher_sha256) GetNames() []string {

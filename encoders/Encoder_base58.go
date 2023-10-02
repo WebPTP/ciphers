@@ -13,7 +13,6 @@ func NewEncoder_base58(defaultAlphabet bool, alphabetName string, alphabet *base
 }
 
 type Encoder_base58 struct {
-	IEncoder
 	defaultAlphabet bool
 	alphabetName    string
 	alphabet        *base58.Alphabet

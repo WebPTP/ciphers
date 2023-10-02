@@ -13,8 +13,6 @@ func NewKeypairGenerator_SM2() *KeypairGenerator_SM2 {
 }
 
 type KeypairGenerator_SM2 struct {
-	IKeypairGenerator
-	IPublicKeyCompressor
 }
 
 func (KeypairGenerator_SM2) GetNames() []string {

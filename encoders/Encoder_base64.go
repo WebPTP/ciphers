@@ -7,7 +7,6 @@ func NewEncoder_base64() *Encoder_base64 {
 }
 
 type Encoder_base64 struct {
-	IEncoder
 }
 
 func (*Encoder_base64) GetNames() []string {

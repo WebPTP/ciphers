@@ -21,7 +21,6 @@ func NewEncipher_RSA(bits int) *Encipher_RSA {
 }
 
 type Encipher_RSA struct {
-	IEncipher
 	bits int
 }
 
@@ -39,7 +38,7 @@ func (e Encipher_RSA) Encrypt(key keypairs.Key, plaintext []byte) ([]byte, error
 		}
 		return rsa.EncryptPKCS1v15(rand.Reader, publicKey, plaintext)
 	}
-	return nil, errors.New("not an *rsa.PublicKey")
+	return nil, errors.New("key not an *rsa.PublicKey")
 }
 
 func (e Encipher_RSA) Decrypt(key keypairs.Key, ciphertext []byte) ([]byte, error) {
@@ -49,5 +48,5 @@ func (e Encipher_RSA) Decrypt(key keypairs.Key, ciphertext []byte) ([]byte, erro
 		}
 		return rsa.DecryptPKCS1v15(rand.Reader, privateKey, ciphertext)
 	}
-	return nil, errors.New("not an *rsa.PrivateKey")
+	return nil, errors.New("key not an *rsa.PrivateKey")
 }

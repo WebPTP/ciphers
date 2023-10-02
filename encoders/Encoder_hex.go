@@ -7,7 +7,6 @@ func NewEncoder_hex() *Encoder_hex {
 }
 
 type Encoder_hex struct {
-	IEncoder
 }
 
 func (*Encoder_hex) GetNames() []string {

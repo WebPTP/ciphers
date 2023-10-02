@@ -14,7 +14,6 @@ const ECDSA_Curve_P384 = "P384"
 const ECDSA_Curve_P521 = "P521"
 
 type KeypairGenerator_ECDSA struct {
-	IKeypairGenerator
 	curve string
 }
 

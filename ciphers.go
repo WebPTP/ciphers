@@ -66,6 +66,7 @@ func InitCipher() {
 	addEncipher(enciphers.NewEncipher_SM2(sm2.C1C2C3))
 	addEncipher(enciphers.NewEncipher_SM2(sm2.C1C3C2))
 	addEncipher(enciphers.NewEncipher_SM2_DER())
+	addEncipher(enciphers.NewEncipher_AES())
 }
 
 func addEncoder(e encoders.IEncoder) {

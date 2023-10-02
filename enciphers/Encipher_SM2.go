@@ -16,7 +16,6 @@ func NewEncipher_SM2(mode int) *Encipher_SM2 {
 }
 
 type Encipher_SM2 struct {
-	IEncipher
 	mode int
 }
 
@@ -42,12 +41,12 @@ func (e Encipher_SM2) Encrypt(key keypairs.Key, plaintext []byte) ([]byte, error
 	if key, ok := key.(*sm2.PublicKey); ok {
 		return sm2.Encrypt(key, plaintext, rand.Reader, e.mode)
 	}
-	return nil, errors.New("not an *sm2.PublicKey")
+	return nil, errors.New("key not an *sm2.PublicKey")
 }
 
 func (e Encipher_SM2) Decrypt(key keypairs.Key, ciphertext []byte) ([]byte, error) {
 	if key, ok := key.(*sm2.PrivateKey); ok {
 		return sm2.Decrypt(key, ciphertext, e.mode)
 	}
-	return nil, errors.New("not an *sm2.PrivateKey")
+	return nil, errors.New("key not an *sm2.PrivateKey")
 }
