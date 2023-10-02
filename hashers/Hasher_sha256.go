@@ -11,7 +11,7 @@ type Hasher_sha256 struct {
 }
 
 func (*Hasher_sha256) GetNames() []string {
-	return []string{"sha256"}
+	return []string{"SHA256"}
 }
 
 func (*Hasher_sha256) Digest(data []byte) []byte {

@@ -26,12 +26,12 @@ func (e Encipher_SM2) GetNames() []string {
 		return []string{
 			"SM2",
 			"SM2 C1C3C2",
-			"SM2 C1C3C2 DER",
+			"SM2 C1C3C2 PKCS8",
 		}
 	case sm2.C1C2C3:
 		return []string{
 			"SM2 C1C2C3",
-			"SM2 C1C2C3 DER",
+			"SM2 C1C2C3 PKCS8",
 		}
 	}
 	panic("not supported sm2 mode: " + strconv.Itoa(e.mode))
