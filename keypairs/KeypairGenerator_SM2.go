@@ -21,9 +21,9 @@ func (KeypairGenerator_SM2) GetNames() []string {
 	return []string{
 		"SM2",
 		"SM2 C1C3C2",
-		"SM2 C1C3C2 DER",
+		"SM2 C1C3C2 PKCS8",
 		"SM2 C1C2C3",
-		"SM2 C1C2C3 DER",
+		"SM2 C1C2C3 PKCS8",
 	}
 }
 
@@ -50,11 +50,13 @@ func (KeypairGenerator_SM2) ExportPublicKey(publicKey PublicKey) ([]byte, error)
 }
 
 func (KeypairGenerator_SM2) ImportPrivateKey(privateKeyBytes []byte) (PrivateKey, error) {
-	return x509.ParseSm2PrivateKey(privateKeyBytes)
+	// PKCS8
+	return x509.ParsePKCS8UnecryptedPrivateKey(privateKeyBytes)
 }
 
 func (KeypairGenerator_SM2) ExportPrivateKey(privateKey PrivateKey) ([]byte, error) {
 	if privateKey, ok := privateKey.(*sm2.PrivateKey); ok {
+		// PKCS8
 		return x509.MarshalSm2UnecryptedPrivateKey(privateKey)
 	}
 	return nil, errors.New("not an *sm2.PrivateKey")
