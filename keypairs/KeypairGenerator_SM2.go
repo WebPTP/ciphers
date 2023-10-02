@@ -54,7 +54,7 @@ func (KeypairGenerator_SM2) ImportPrivateKey(privateKeyBytes []byte) (PrivateKey
 }
 
 func (KeypairGenerator_SM2) ExportPrivateKey(privateKey PrivateKey) ([]byte, error) {
-	if privateKey, ok := privateKey.(*sm2.PrivateKey); !ok {
+	if privateKey, ok := privateKey.(*sm2.PrivateKey); ok {
 		return x509.MarshalSm2UnecryptedPrivateKey(privateKey)
 	}
 	return nil, errors.New("not an *sm2.PrivateKey")
